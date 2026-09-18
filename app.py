@@ -1,4 +1,5 @@
-import subprocess
+import os
+
 def validate_username(username):
     """Return True when a username is acceptable."""
     if not isinstance(username, str):
@@ -18,10 +19,12 @@ def create_profile_message(username, role="student"):
         raise ValueError("Invalid role")
     return f"User: {username.strip()} | Role: {role}"
 
+
 def show_directory_contents():
-    """Safer version for cross-platform."""
-    subprocess.run(["python", "--version"], check=True)
+    """Safe directory listing without subprocess."""
+    return os.listdir(".")
+
 
 if __name__ == "__main__":
     print(create_profile_message("student_01"))
-    show_directory_contents()
+    print(show_directory_contents())
