@@ -19,8 +19,9 @@ def create_profile_message(username, role="student"):
     return f"User: {username.strip()} | Role: {role}"
 
 def show_directory_contents():
-    """Safer version for Windows."""
-    subprocess.run(["cmd", "/c", "dir"], check=True)
+    """Safer version for cross-platform."""
+    subprocess.run(["python", "--version"], check=True)
 
 if __name__ == "__main__":
     print(create_profile_message("student_01"))
+    show_directory_contents()
